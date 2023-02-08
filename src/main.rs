@@ -1,4 +1,4 @@
-use std::io;
+use std::{io, process::exit};
 use rand::Rng;
 use std::cmp::Ordering;
 
@@ -20,7 +20,7 @@ impl Game {
 
     fn compare(&self) {
         match &self.user_input.cmp(&self.machine_code) {
-            Ordering::Equal => {println!("You win"); },
+            Ordering::Equal => {println!("You win");exit(1)},
             Ordering::Greater => println!("Too High, guess a bit low"),
             Ordering::Less => println!("Too small, guess a bit higher"),
         };
